@@ -2,6 +2,7 @@ package library.scientific;
 
 import library.Books;
 
+
 public abstract class ScientificBooks implements Books {
 
     private String author;
@@ -9,53 +10,56 @@ public abstract class ScientificBooks implements Books {
     private String description;
     private int publishing;
 
-    public ScientificBooks () {
+    public ScientificBooks() {
     }
 
-    public ScientificBooks (String author1, String book, String description, int publishing) {
+    public ScientificBooks(String author, String book, String description, int publishing) {
 
-        this.author = author1;
+        this.author = author;
         this.book = book;
         this.description = description;
         this.publishing = publishing;
     }
 
-    public void setAuthor (String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getAuthor () {
+    public String getAuthor() {
         return this.author;
     }
 
-    public void setBook (String Book) {
+    public void setBook(String book) {
         this.book = book;
     }
 
-    public String getBook () {
+    public String getBook() {
         return this.book;
     }
 
-    public void setDescription (String Description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getDescription () {
+    public String getDescription() {
         return this.description;
     }
 
-    public void setPublishing (int Publishing)  {
+    public void setPublishing(int publishing) {
         this.publishing = publishing;
     }
 
-    public int getPublishing () {
+    public int getPublishing() {
         return this.publishing;
     }
 
-    public void printInfo () {
-        System.out.println (getAuthor());
-        System.out.println (getBook());
-        System.out.println (getDescription());
-        System.out.println (getPublishing());
+    @Override
+    public void changeAuthor(String author) {
+        setAuthor(author);
+    }
+
+    @Override
+    public void printInfo() {
+
     }
 }

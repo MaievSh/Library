@@ -14,9 +14,13 @@ public class PictureBooks extends ChildishBooks{
         super(author, book, description, publishing);
     }
 
-    public void printInfoPictureBooks() {
-        printInfo();
-        System.out.println (getBook());
+    @Override
+    public void printInfo(){
+        System.out.println("This info about Picture books " + getBook());
     }
 
+    @Override
+    public void changeAuthor(String author) {
+
+    }
 }

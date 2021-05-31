@@ -2,14 +2,16 @@ package library.entertaining;
 
 import library.Books;
 
-public abstract class EntertainingBooks {
+public abstract class EntertainingBooks implements Books {
 
     private String author;
     private String book;
     private String description;
     private int publishing;
 
-public EntertainingBooks () {}
+public EntertainingBooks () {
+
+}
 
 public EntertainingBooks (String author, String book, String description, int publishing) {
 
@@ -51,10 +53,15 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.publishing;
     }
 
-    public void printInformation () {
+    public void printInfo () {
         System.out.println (getAuthor());
         System.out.println (getBook());
         System.out.println (getDescription());
         System.out.println (getPublishing());
+    }
+
+    @Override
+    public void changeAuthor(String author) {
+        setAuthor(author);
     }
 }

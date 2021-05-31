@@ -1,6 +1,7 @@
 package library.сhildish;
 
 import library.Books;
+import library.сhildish.PictureBooks;
 
 public abstract class ChildishBooks implements Books {
 
@@ -57,5 +58,10 @@ public abstract class ChildishBooks implements Books {
         System.out.println (getBook());
         System.out.println (getDescription());
         System.out.println (getPublishing());
+    }
+
+    @Override
+    public void changeAuthor(String author) {
+
     }
 }
