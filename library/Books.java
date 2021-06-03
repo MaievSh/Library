@@ -5,4 +5,6 @@ public interface Books {
 
     public void changeAuthor(String author);
 
+  public String getBook();
+
 }

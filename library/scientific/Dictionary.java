@@ -21,15 +21,10 @@ public class Dictionary extends ScientificBooks{
         return this.type;
     }
 
-    public void printInformation () {
-        System.out.println (getAuthor());
-        System.out.println (getBook());
-        System.out.println (getDescription());
-        System.out.println (getPublishing());
-    }
+   @Override
+   public String toString() {
+       return "This info about Dictionary: " + " Author: " + getAuthor()+ " Name of book: " + getBook() + " Description: " + getDescription()
+               + " Year of publishing: " + getPublishing() + " Type of Dictionary: " + getType();}
 
-    @Override
-    public void printInfo() {
-        System.out.println("This info about Dictionary: " + " Author: " + getAuthor()+ " Name of book: " + getBook() + " Description: " + getDescription() + " Year of publishing: " + getPublishing() + " Type of Dictionary: " + getType());
-    }
+
 }
