@@ -33,15 +33,15 @@ public class Encyclopedias extends ScientificBooks {
     }
 
 
-    public void printInformation() {
-        System.out.println(getAuthor());
-        System.out.println(getBook());
-        System.out.println(getDescription());
-        System.out.println(getPublishing());
-    }
-
     @Override
-    public void printInfo() {
-        System.out.println("This info about Encyclopedia: " + " Author: " + getAuthor()+ " Name of book: " + getBook() + " Description: " + getDescription() + " Year of publishing: " + getPublishing() + " Comment: " + getComment() + " Number of copies: " + getCopies() );
-    }
-}
+    public String toString() {
+        return "This info about Encyclopedia: " + " Author: " + getAuthor()+ " Name of book: " + getBook() + " Description: "
+                + getDescription() + " Year of publishing: " + getPublishing() + " Comment: " + getComment() + " Number of copies: " +
+                getCopies();}
+
+            }
+
+
+
+
+

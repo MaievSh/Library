@@ -1,7 +1,6 @@
 package library.сhildish;
 
 import library.Books;
-import library.сhildish.PictureBooks;
 
 public abstract class ChildishBooks implements Books {
 
@@ -10,7 +9,7 @@ public abstract class ChildishBooks implements Books {
     private String description;
     private int publishing;
 
-    public ChildishBooks () {
+    public ChildishBooks() {
     }
 
     public ChildishBooks (String author, String book, String description, int publishing) {
@@ -36,7 +35,6 @@ public abstract class ChildishBooks implements Books {
     public String getBook () {
         return this.book;
     }
-
     public void setDescription (String Description) {
         this.description = description;
     }
