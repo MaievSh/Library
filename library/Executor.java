@@ -17,7 +17,7 @@ public class Executor {
 
     public static void main(String[] args) {
 
-        PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+       PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
 
         Tales tales = new Tales("Daisy Fisher", "cinderella","is a folk tale about oppression and triumphant reward." +
                 " Thousands of variants are known throughout the world. " +
@@ -41,13 +41,15 @@ public class Executor {
         Classics classics = new Classics ("L. N. Tolstoy", "World and war", " epic novel",1865, " Russia");
         String infoClassics = classics.toString();
         System.out.println(infoClassics);
-        System.out.flush();
 
+        System.out.println("==========================================================================================");
 
         GoodFeedback goodFeedback = new GoodFeedback();
         goodFeedback.setBooks(pictureBooks);
+
         System.out.println(goodFeedback.getBooks().getBook());
-        System.out.flush();
+
+        System.out.println("==========================================================================================");
 
         int index = 0;
         do {
@@ -86,12 +88,52 @@ public class Executor {
                orwell1984.printInfo();
                 index = 10;
                 break;
+            default:
+                System.out.println("Please, enter correct genre of books.");
+                break;
         }
         index++;
-    } while(index < 10);
+
+    }
+        while(index < 10);
+
+        System.out.println("==========================================================================================");
+
+
+        PictureBooks kolobok = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+        PictureBooks snowyDay = new PictureBooks("Ezra Jack", "The Snowy Day", "The magic and wonder of winter’s first snowfall is perfectly captured in Ezra Jack Keat’s Caldecott Medal-winning picture book. " +
+                "This celebrated classic has been shared by generations of readers and listeners, a must-have for every child’s bookshelf.", 2005);
+        PictureBooks panda = new PictureBooks("Jo Lodge", "Time for Bed, Panda", "A perfect bedtime story for babies, this colourful board book teaches little ones simple words about their bedtime routine.", 2010);
+        PictureBooks freddyTheFrog = new PictureBooks("Axel Scheffler", "Freddy the Frog", "Follow Freddy the frog as he squelches in slime, races his friends and croaks all day!", 2015);
+
+
+        GoodFeedback feedback = new GoodFeedback();
+        feedback.setPictureBooks(kolobok);
+        feedback.setPictureBooks(snowyDay);
+        feedback.setPictureBooks(panda);
+        feedback.setPictureBooks(freddyTheFrog);
+
+        for(PictureBooks pictureBooks1: feedback.getlistOfPictureBooks())
+            System.out.println(pictureBooks1.getBook());
+
+
+    Tales cinderella = new Tales("Daisy Fisher", "cinderella","is a folk tale about oppression and triumphant reward." +
+            " Thousands of variants are known throughout the world. " +
+            "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.",1697,"good book");
+    Tales percyJackson = new Tales("Rick Riordan", "Percy Jackson", "All year the half-bloods have been preparing for battle against the Titans, knowing the odds of victory are grim", 1998);
+
+
+    GoodFeedback feedbackOfTales = new GoodFeedback();
+        feedbackOfTales.setTales(cinderella);
+        feedbackOfTales.setTales(percyJackson);
+
+      for(Tales tales1: feedbackOfTales.getlistOfTales())
+           System.out.println(tales1.getBook());
+}
+
 
 }
-}
+
 
 
 
