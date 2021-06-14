@@ -32,4 +32,8 @@ public class PictureBooks extends ChildishBooks{
 
     }
 
+    @Override
+    public void removeBook() {
+        super.removeBook();
+    }
 }

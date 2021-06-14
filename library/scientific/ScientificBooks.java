@@ -62,5 +62,8 @@ public abstract class ScientificBooks implements Books {
     public void printInfo() {
     }
 
+    @Override
+    public void removeBook() {
 
+    }
 }

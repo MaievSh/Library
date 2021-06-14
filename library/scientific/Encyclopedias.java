@@ -39,7 +39,8 @@ public class Encyclopedias extends ScientificBooks {
                 + getDescription() + " Year of publishing: " + getPublishing() + " Comment: " + getComment() + " Number of copies: " +
                 getCopies();}
 
-            }
+
+}
 
 
 

@@ -64,4 +64,9 @@ public EntertainingBooks (String author, String book, String description, int pu
     public void changeAuthor(String author) {
         setAuthor(author);
     }
+
+    @Override
+    public void removeBook() {
+
+    }
 }
