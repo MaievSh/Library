@@ -1,12 +1,11 @@
 package library;
-
+import library.scientific.Classics;
 import library.сhildish.ChildishBooks;
 import library.сhildish.PictureBooks;
 import library.сhildish.Tales;
+import library.Menu;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class GoodFeedback {
     private Books books;
@@ -22,9 +21,20 @@ public class GoodFeedback {
     private List<PictureBooks> listOfPictureBooks;
     private List<Tales> listOfTales;
 
+    private Set<Classics> setOfClassics;
+
     public GoodFeedback() {
         listOfPictureBooks = new ArrayList<>();
         listOfTales = new LinkedList<>();
+        setOfClassics = new HashSet<Classics>();
+    }
+
+    public void removeBook(Tales tales) {
+        listOfTales.remove(tales);
+    }
+
+    public void removeBook(PictureBooks pictureBooks) {
+        listOfPictureBooks.remove(pictureBooks);
     }
 
     public void setPictureBooks(PictureBooks pictureBooks) {
@@ -40,5 +50,13 @@ public class GoodFeedback {
 
     public List<Tales> getlistOfTales() {
         return listOfTales;
+    }
+
+    public void setClassics (Classics classics) {
+        setOfClassics.add(classics);
+    }
+
+    public Set<Classics> getSetOfClassics(){
+        return setOfClassics;
     }
 }

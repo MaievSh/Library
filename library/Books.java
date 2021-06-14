@@ -7,4 +7,6 @@ public interface Books {
 
   public String getBook();
 
+  public void removeBook();
+  
 }

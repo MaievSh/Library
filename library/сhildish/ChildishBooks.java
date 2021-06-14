@@ -62,4 +62,9 @@ public abstract class ChildishBooks implements Books {
     public void changeAuthor(String author) {
 
     }
+
+    @Override
+    public void removeBook() {
+
+    }
 }
