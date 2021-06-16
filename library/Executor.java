@@ -16,9 +16,40 @@ public class Executor {
 
 
     public static void main(String[] args) {
-
         Menu menu = new Menu();
-        menu.showMenu();
+
+        int index = 0;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter the number of lesson\n" +
+                    "1 - collectionAndHashmap\n" +
+                    "2 - switchCase\n" +
+                    "3 - creatingInterface");
+            String lesson = in.nextLine();
+
+            switch (lesson) {
+                case "1":
+                    menu.collectionAndHashmap();
+                    index = 10;
+                    break;
+                case "2":
+                    menu.switchCase();
+                    index = 10;
+                    break;
+                case "3":
+                    menu.creatingInterface();
+                    index = 10;
+                    break;
+                default:
+                    System.out.print("Please, enter correct number of lesson.");
+                    break;
+            }
+            index++;
+
+        }
+        while (index < 10);
+
+      //  menu.polymorphism();
 
     }
 }

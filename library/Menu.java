@@ -21,157 +21,159 @@ public class Menu {
     public Menu() {
 
     }
-    public void showMenu(){
+    public void creatingInterface() {
 
-    PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+        PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
 
-    Tales tales = new Tales("Daisy Fisher", "cinderella","is a folk tale about oppression and triumphant reward." +
-            " Thousands of variants are known throughout the world. " +
-            "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.",1697,"good book");
+        Tales tales = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+                " Thousands of variants are known throughout the world. " +
+                "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 1697, "good book");
 
-    Encyclopedias encyclopedias = new Encyclopedias("Mira Filippova", "Encyclopedia of everything in the world", "book of everything in the world", 2015,"good book", 1200);
+        Encyclopedias encyclopedias = new Encyclopedias("Mira Filippova", "Encyclopedia of everything in the world", "book of everything in the world", 2015, "good book", 1200);
         encyclopedias.printInfo();
 
-    Encyclopedias bigEncyclopedias = new Encyclopedias("Tatiana Korneva","Great children's encyclopedia", "Where did I come from?",2000);
-    String bigEncyclopediasInfo = bigEncyclopedias.toString();
+        Encyclopedias bigEncyclopedias = new Encyclopedias("Tatiana Korneva", "Great children's encyclopedia", "Where did I come from?", 2000);
+        String bigEncyclopediasInfo = bigEncyclopedias.toString();
         System.out.println(bigEncyclopediasInfo);
 
         bigEncyclopedias.changeAuthor("Tatiana Novik");
-    String author = bigEncyclopedias.toString();
+        String author = bigEncyclopedias.toString();
         System.out.println(author);
 
-    Dictionary dictionary = new Dictionary ("Nadezhda Nadezhkina", "Japan-Russian dictionary", "translate words",1986, " Japan-Russian");
-    String infoDictionary = dictionary.toString();
+        Dictionary dictionary = new Dictionary("Nadezhda Nadezhkina", "Japan-Russian dictionary", "translate words", 1986, " Japan-Russian");
+        String infoDictionary = dictionary.toString();
         System.out.println(infoDictionary);
 
-    Classics classics = new Classics ("L. N. Tolstoy", "World and war", " epic novel",1865, " Russia");
-    String infoClassics = classics.toString();
+        Classics classics = new Classics("L. N. Tolstoy", "World and war", " epic novel", 1865, " Russia");
+        String infoClassics = classics.toString();
         System.out.println(infoClassics);
-
-        System.out.println("==========================================================================================");
-
-    GoodFeedback goodFeedback = new GoodFeedback();
-        goodFeedback.setBooks(pictureBooks);
-
-        System.out.println(goodFeedback.getBooks().getBook());
-
-        System.out.println("==========================================================================================");
-
-    int index = 0;
-        do {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter the genre of books you are interested in: Action, Crime, Post-Apocalypse, SciFi");
-        String genre = in.nextLine();
-
-        switch (genre) {
-            case "Action":
-                System.out.println("You choose Action books");
-                Action centerEarth = new Action("Jules Verne","Journey to the Center of the Earth","Journey to the Center of the Earth is exactly that: " +
-                        "a trip to the inside of the world, which is where German professor Otto Lidenbrock theorizes that volcanic tubes will lead." +
-                        "", 1984);
-                centerEarth.printInfo();
-                index = 10;
-                break;
-            case "Crime":
-                System.out.println("You choose Crime books");
-                Crime goneGirl = new Crime("Gillian Flynn","Gone Girl","More than any other book in the decade, Gillian Flynn’s mega-hit Gone Girl captured the essence of female rage, " +
-                        "as millions of well-dressed, seemingly content women used Flynn’s fearsome takedown of the patriarchy to unleash their inner discontent",2012);
-                goneGirl.printInfo();
-                index = 10;
-                break;
-            case "Post-Apocalypse":
-                System.out.println("You choose Post-Apocalypse books");
-                PostApocalyptic theStand = new PostApocalyptic("Stephen King","The Stand","It’s about a plague that is accidentally unleashed upon the world from a government lab and wipes out most of humanity (save those that are mysteriously immune)," +
-                        " which would be compelling enough in its own right; " +
-                        "but, this being Stephen King, he, of course, has to add some supernatural elements as well.",1980);
-                theStand.printInfo();
-                index = 10;
-                break;
-            case "SciFi":
-                System.out.println("You choose SciFi books");
-                SciFi orwell1984 = new SciFi("George Orwell", "1984","1984 is a prime example of this," +
-                        " a dystopian novel where our culture has become the victim of government surveillance and public manipulation.",1949);
-                orwell1984.printInfo();
-                index = 10;
-                break;
-            default:
-                System.out.println("Please, enter correct genre of books.");
-                break;
-        }
-        index++;
-
     }
-        while(index < 10);
 
+    public void polymorphism() {
+        PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+        Tales tales = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+                " Thousands of variants are known throughout the world. " +
+                "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 1697, "good book");
+
+        GoodFeedback goodFeedback = new GoodFeedback();
+        goodFeedback.setBooks(tales);
+
+        System.out.println(goodFeedback.getBooks());
+    }
+
+    public void switchCase() {
+        int index = 0;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter the genre of books you are interested in: Action, Crime, Post-Apocalypse, SciFi");
+            String genre = in.nextLine();
+
+            switch (genre) {
+                case "Action":
+                    System.out.println("You choose Action books");
+                    Action centerEarth = new Action("Jules Verne", "Journey to the Center of the Earth", "Journey to the Center of the Earth is exactly that: " +
+                            "a trip to the inside of the world, which is where German professor Otto Lidenbrock theorizes that volcanic tubes will lead." +
+                            "", 1984);
+                    centerEarth.printInfo();
+                    index = 10;
+                    break;
+                case "Crime":
+                    System.out.println("You choose Crime books");
+                    Crime goneGirl = new Crime("Gillian Flynn", "Gone Girl", "More than any other book in the decade, Gillian Flynn’s mega-hit Gone Girl captured the essence of female rage, " +
+                            "as millions of well-dressed, seemingly content women used Flynn’s fearsome takedown of the patriarchy to unleash their inner discontent", 2012);
+                    goneGirl.printInfo();
+                    index = 10;
+                    break;
+                case "Post-Apocalypse":
+                    System.out.println("You choose Post-Apocalypse books");
+                    PostApocalyptic theStand = new PostApocalyptic("Stephen King", "The Stand", "It’s about a plague that is accidentally unleashed upon the world from a government lab and wipes out most of humanity (save those that are mysteriously immune)," +
+                            " which would be compelling enough in its own right; " +
+                            "but, this being Stephen King, he, of course, has to add some supernatural elements as well.", 1980);
+                    theStand.printInfo();
+                    index = 10;
+                    break;
+                case "SciFi":
+                    System.out.println("You choose SciFi books");
+                    SciFi orwell1984 = new SciFi("George Orwell", "1984", "1984 is a prime example of this," +
+                            " a dystopian novel where our culture has become the victim of government surveillance and public manipulation.", 1949);
+                    orwell1984.printInfo();
+                    index = 10;
+                    break;
+                default:
+                    System.out.println("Please, enter correct genre of books.");
+                    break;
+            }
+            index++;
+
+        }
+        while (index < 10);
+    }
+
+    public void collectionAndHashmap() {
         System.out.println("==========================================================================================");
 
 
-    PictureBooks kolobok = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
-    PictureBooks snowyDay = new PictureBooks("Ezra Jack", "The Snowy Day", "The magic and wonder of winter’s first snowfall is perfectly captured in Ezra Jack Keat’s Caldecott Medal-winning picture book. " +
-            "This celebrated classic has been shared by generations of readers and listeners, a must-have for every child’s bookshelf.", 2005);
-    PictureBooks panda = new PictureBooks("Jo Lodge", "Time for Bed, Panda", "A perfect bedtime story for babies, this colourful board book teaches little ones simple words about their bedtime routine.", 2010);
-    PictureBooks freddyTheFrog = new PictureBooks("Axel Scheffler", "Freddy the Frog", "Follow Freddy the frog as he squelches in slime, races his friends and croaks all day!", 2015);
+        PictureBooks kolobok = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+        PictureBooks snowyDay = new PictureBooks("Ezra Jack", "The Snowy Day", "The magic and wonder of winter’s first snowfall is perfectly captured in Ezra Jack Keat’s Caldecott Medal-winning picture book. " +
+                "This celebrated classic has been shared by generations of readers and listeners, a must-have for every child’s bookshelf.", 2005);
+        PictureBooks panda = new PictureBooks("Jo Lodge", "Time for Bed, Panda", "A perfect bedtime story for babies, this colourful board book teaches little ones simple words about their bedtime routine.", 2010);
+        PictureBooks freddyTheFrog = new PictureBooks("Axel Scheffler", "Freddy the Frog", "Follow Freddy the frog as he squelches in slime, races his friends and croaks all day!", 2015);
 
-    GoodFeedback feedback = new GoodFeedback();
+        GoodFeedback feedback = new GoodFeedback();
         feedback.setPictureBooks(kolobok);
         feedback.setPictureBooks(snowyDay);
         feedback.setPictureBooks(panda);
         feedback.setPictureBooks(freddyTheFrog);
         feedback.removeBook(panda);
 
-        for(PictureBooks pictureBooks1: feedback.getlistOfPictureBooks())
+        for (PictureBooks pictureBooks1 : feedback.getlistOfPictureBooks())
             System.out.println(pictureBooks1.getBook());
 
 
-    Tales cinderella = new Tales("Daisy Fisher", "cinderella","is a folk tale about oppression and triumphant reward." +
-            " Thousands of variants are known throughout the world. " +
-            "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.",1697,"good book");
-    Tales percyJackson = new Tales("Rick Riordan", "Percy Jackson", "All year the half-bloods have been preparing for battle against the Titans, knowing the odds of victory are grim", 1998);
+        Tales cinderella = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+                " Thousands of variants are known throughout the world. " +
+                "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 1697, "good book");
+        Tales percyJackson = new Tales("Rick Riordan", "Percy Jackson", "All year the half-bloods have been preparing for battle against the Titans, knowing the odds of victory are grim", 1998);
 
         System.out.println("==========================================================================================");
 
-    GoodFeedback feedbackOfTales = new GoodFeedback();
+        GoodFeedback feedbackOfTales = new GoodFeedback();
         feedbackOfTales.setTales(cinderella);
         feedbackOfTales.setTales(percyJackson);
         feedbackOfTales.removeBook(cinderella);
 
 
-      for(Tales tales1: feedbackOfTales.getlistOfTales())
+        for (Tales tales1 : feedbackOfTales.getlistOfTales())
             System.out.println(tales1.getBook());
 
         System.out.println("==========================================================================================");
 
-        Classics worldAndWar = new Classics("L. N. Tolstoy", "World and war", " epic novel",1865, " Russia");
+        Classics worldAndWar = new Classics("L. N. Tolstoy", "World and war", " epic novel", 1865, " Russia");
 
         GoodFeedback feedbackOfClassics = new GoodFeedback();
         feedback.setClassics(worldAndWar);
 
-        HashMap<Tales, String> map = new HashMap<>();
-        map.put(cinderella, "German Authfich");
-        map.put(percyJackson, "Brendon Lee");
-       System.out.println(map.get(cinderella));
-       System.out.println(map.get(percyJackson));
+        HashMap<String, String> map = new HashMap<>();
+        map.put(cinderella.getBook(), "German Authfich");
+        map.put(percyJackson.getBook(), "Brendon Lee");
+        System.out.println(map.get(cinderella.getBook()));
+        System.out.println(map.get(percyJackson.getBook()));
 
-        if (map != null){
-            System.out.println("List is empty!");
+
+
+        HashMap<String, String> map1 = new HashMap<>();
+        map1.put(kolobok.getBook(), "Vitalii Anisimov");
+        map1.put(snowyDay.getBook(), "Alex Stakh");
+        map1.put(panda.getBook(), "Korin Shelm");
+        map1.put(freddyTheFrog.getBook(), "Danial Sinkler");
+        if (map1 != null){
+        map1.remove(kolobok.getBook());
         }
 
-
-        System.out.println("==========================================================================================");
-
-        HashMap<PictureBooks, String> map1 = new HashMap<>();
-        map1.put(kolobok, "Vitalii Anisimov");
-        map1.put(snowyDay, "Alex Stakh");
-        map1.put(panda, "Korin Shelm");
-        map1.put(freddyTheFrog, "Danial Sinkler");
-        map1.remove(kolobok);
-
-      for (String books : map1.values() ) {
+        Set <String> strings = map1.keySet();
+      for (String books : strings ) {
           System.out.println(books);
 
       }
-       if (map1 != null){
-        System.out.println("List is empty!");
-    }
 }
 }
