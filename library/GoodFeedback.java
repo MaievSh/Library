@@ -8,20 +8,12 @@ import library.Menu;
 import java.util.*;
 
 public class GoodFeedback {
-    private Books books;
-
-
-    public void setBooks(Books books){
-     this.books =books;
-      }
-      public Books getBooks(){
-        return this.books;
-      }
+    private List<Books> books;
 
     private List<PictureBooks> listOfPictureBooks;
     private List<Tales> listOfTales;
-
     private Set<Classics> setOfClassics;
+
 
     public GoodFeedback() {
         listOfPictureBooks = new ArrayList<>();
@@ -29,34 +21,57 @@ public class GoodFeedback {
         setOfClassics = new HashSet<Classics>();
     }
 
-    public void removeBook(Tales tales) {
-        listOfTales.remove(tales);
+    public void setBooks(Books book) {
+        books.add(book);
     }
 
-    public void removeBook(PictureBooks pictureBooks) {
-        listOfPictureBooks.remove(pictureBooks);
+    public List<Books> getBooks() {
+        return books;
     }
 
     public void setPictureBooks(PictureBooks pictureBooks) {
         listOfPictureBooks.add(pictureBooks);
-    }
-    public void setTales(Tales tales) {
-        listOfTales.add(tales);
     }
 
     public List<PictureBooks> getlistOfPictureBooks() {
         return listOfPictureBooks;
     }
 
+    public void setTales(Tales tales) {
+        listOfTales.add(tales);
+    }
+
     public List<Tales> getlistOfTales() {
         return listOfTales;
     }
 
-    public void setClassics (Classics classics) {
+    public void setClassics(Classics classics) {
         setOfClassics.add(classics);
     }
 
-    public Set<Classics> getSetOfClassics(){
+    public Set<Classics> getSetOfClassics() {
         return setOfClassics;
+    }
+
+    public void removeBook(Tales tales) {
+    listOfTales.remove(tales);
+      }
+
+    public void removeBook(PictureBooks pictureBooks) {
+        listOfPictureBooks.remove(pictureBooks);
+    }
+
+    public static void verification(GoodFeedback goodFeedback) {
+        int i = 0;
+        if (!goodFeedback.getlistOfPictureBooks().isEmpty()) {
+
+            while (i < goodFeedback.getlistOfPictureBooks().size()) {
+
+           //     goodFeedback.removeBook();
+                i++;
+
+            }
+
+        }
     }
 }
