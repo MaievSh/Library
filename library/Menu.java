@@ -4,6 +4,7 @@ import library.entertaining.Action;
 import library.entertaining.Crime;
 import library.entertaining.PostApocalyptic;
 import library.entertaining.SciFi;
+import library.exceptions.PublishingException;
 import library.scientific.Classics;
 import library.scientific.Dictionary;
 import library.scientific.Encyclopedias;
@@ -11,16 +12,20 @@ import library.scientific.ScientificBooks;
 import library.сhildish.PictureBooks;
 import library.сhildish.Tales;
 import library.Books;
+import library.exceptions.PublishingException;
 
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Menu {
 
     public Menu() {
 
     }
+
     public void creatingInterface() {
 
         PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
@@ -50,15 +55,18 @@ public class Menu {
     }
 
     public void polymorphism() {
-        PictureBooks pictureBooks = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
-        Tales tales = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+        PictureBooks kolobok = new PictureBooks("Gorman", "Kolobok", "This is book about russia pie", 1982);
+        Tales cinderella = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
                 " Thousands of variants are known throughout the world. " +
                 "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 1697, "good book");
 
         GoodFeedback goodFeedback = new GoodFeedback();
-        goodFeedback.setBooks(tales);
+        goodFeedback.setBooks(cinderella);
+        goodFeedback.setBooks(kolobok);
 
-        System.out.println(goodFeedback.getBooks());
+        for (Books book : goodFeedback.getBooks())
+            System.out.println(book.getBook());
+
     }
 
     public void switchCase() {
@@ -160,20 +168,117 @@ public class Menu {
         System.out.println(map.get(percyJackson.getBook()));
 
 
-
         HashMap<String, String> map1 = new HashMap<>();
         map1.put(kolobok.getBook(), "Vitalii Anisimov");
         map1.put(snowyDay.getBook(), "Alex Stakh");
         map1.put(panda.getBook(), "Korin Shelm");
         map1.put(freddyTheFrog.getBook(), "Danial Sinkler");
-        if (map1 != null){
-        map1.remove(kolobok.getBook());
+        if (map1 != null) {
+            map1.remove(kolobok.getBook());
         }
 
-        Set <String> strings = map1.keySet();
-      for (String books : strings ) {
-          System.out.println(books);
+        Set<String> strings = map1.keySet();
+        for (String books : strings) {
+            System.out.println(books);
+        }
 
-      }
-}
+    }
+
+    public void exceptions() throws FileNotFoundException {
+
+        Classics worldAndWar = new Classics("L. N. Tolstoy", "World and war", " epic novel", 1865, " Russia");
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter publishing date: ");
+        int wAw;
+
+        wAw = in.nextInt();
+
+        try {
+            worldAndWar.changePublishing(wAw);
+            String publishing = worldAndWar.toString();
+            System.out.println(publishing);
+        } catch (Exception e) {
+            System.err.println("Date of publication can be only integer! ");
+
+        } finally {
+            int index = 0;
+            do {
+                System.out.println("If you want to change the date again press 1 or 2 if you want exit program");
+                Scanner in1 = new Scanner(System.in);
+                String number = in1.nextLine();
+
+                switch (number) {
+                    case "1":
+                        System.out.println("");
+                        Scanner in2 = new Scanner(System.in);
+                        System.out.println("Please enter publishing date: ");
+                        int wAw1;
+                        wAw1 = in2.nextInt();
+                        worldAndWar.changePublishing(wAw1);
+                        String publishing = worldAndWar.toString();
+                        System.out.println(publishing);
+                        index = 10;
+                        break;
+                    case "2":
+                        System.exit(0);
+                        index = 10;
+                        break;
+
+                    default:
+                        System.out.println("Enter only 1 or 2 please.");
+                        break;
+                }
+                index++;
+
+            }
+            while (index < 10);
+        }
+    }
+
+    public void customExceptions() {
+
+
+        {
+            int index = 0;
+            do {
+                System.out.println("If you want to see the correct version of the book description enter 1 or 2 if you want to see variant with custom exception");
+                Scanner in1 = new Scanner(System.in);
+                String number = in1.nextLine();
+
+                switch (number) {
+                    case "1":
+                        Tales cinderella = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+                                " Thousands of variants are known throughout the world. " +
+                                "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 1697, "good book");
+                        String infoTales = cinderella.toString();
+                        System.out.println(infoTales);
+                        index = 10;
+                        break;
+                    case "2":
+                        try {
+                            Tales cinderella1 = new Tales("Daisy Fisher", "cinderella", "is a folk tale about oppression and triumphant reward." +
+                                    " Thousands of variants are known throughout the world. " +
+                                    "The protagonist is a young woman living in forsaken circumstances that are suddenly changed to remarkable fortune, with her ascension to the throne via marriage.", 0, "good book");
+                            String infoTales1 = cinderella1.toString();
+                            System.out.println(infoTales1);
+                            cinderella1.setPublishing(0);
+                            index = 10;
+                        }
+                        catch (PublishingException e)
+                        {e.printStackTrace();
+                            System.exit(0);}
+
+                        break;
+
+                    default:
+                        System.out.println("Enter only 1 or 2 please.");
+                        break;
+                }
+                index++;
+
+            }
+            while (index < 10);
+        }
+    }
 }

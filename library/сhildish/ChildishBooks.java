@@ -1,6 +1,7 @@
 package library.сhildish;
 
 import library.Books;
+import library.exceptions.PublishingException;
 
 public abstract class ChildishBooks implements Books {
 
@@ -43,8 +44,10 @@ public abstract class ChildishBooks implements Books {
         return this.description;
     }
 
-    public void setPublishing (int Publishing)  {
+    public void setPublishing (int Publishing) throws PublishingException {
+        if (publishing <=0){ throw new PublishingException("Publishing date is incorrect!");}
         this.publishing = publishing;
+
     }
 
     public int getPublishing () {
@@ -60,11 +63,12 @@ public abstract class ChildishBooks implements Books {
 
     @Override
     public void changeAuthor(String author) {
-
     }
-
     @Override
     public void removeBook() {
-
+    }
+    @Override
+    public  void  changePublishing (int publishing) throws PublishingException {
+        setPublishing(publishing);
     }
 }
