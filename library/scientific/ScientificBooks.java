@@ -66,4 +66,9 @@ public abstract class ScientificBooks implements Books {
     public void removeBook() {
 
     }
+
+    @Override
+    public  void  changePublishing (int publishing){
+        setPublishing(publishing);
+    }
 }

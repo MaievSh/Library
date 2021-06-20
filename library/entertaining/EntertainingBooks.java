@@ -29,7 +29,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.author;
     }
 
-    public void setBook (String Book) {
+    public void setBook (String book) {
         this.book = book;
     }
 
@@ -37,7 +37,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.book;
     }
 
-    public void setDescription (String Description) {
+    public void setDescription (String description) {
         this.description = description;
     }
 
@@ -45,7 +45,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.description;
     }
 
-    public void setPublishing (int Publishing)  {
+    public void setPublishing (int publishing)  {
         this.publishing = publishing;
     }
 
@@ -68,5 +68,10 @@ public EntertainingBooks (String author, String book, String description, int pu
     @Override
     public void removeBook() {
 
+    }
+
+    @Override
+    public  void  changePublishing (int publishing){
+    setPublishing(publishing);
     }
 }

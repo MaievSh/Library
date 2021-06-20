@@ -8,25 +8,25 @@ import library.Menu;
 import java.util.*;
 
 public class GoodFeedback {
-    private List<Books> books;
-
+    private List<Books> listOfBooks;
     private List<PictureBooks> listOfPictureBooks;
     private List<Tales> listOfTales;
     private Set<Classics> setOfClassics;
 
 
     public GoodFeedback() {
+        listOfBooks = new ArrayList<>();
         listOfPictureBooks = new ArrayList<>();
         listOfTales = new LinkedList<>();
         setOfClassics = new HashSet<Classics>();
     }
 
     public void setBooks(Books book) {
-        books.add(book);
+        listOfBooks.add(book);
     }
 
     public List<Books> getBooks() {
-        return books;
+        return listOfBooks;
     }
 
     public void setPictureBooks(PictureBooks pictureBooks) {
