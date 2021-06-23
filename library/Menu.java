@@ -188,17 +188,16 @@ public class Menu {
 
         Classics worldAndWar = new Classics("L. N. Tolstoy", "World and war", " epic novel", 1865, " Russia");
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter publishing date: ");
-        int wAw;
-
-        wAw = in.nextInt();
-
         try {
+           Scanner in = new Scanner(System.in);
+            System.out.println("Please enter publishing date: ");
+            int wAw;
+
+            wAw = in.nextInt();
             worldAndWar.changePublishing(wAw);
             String publishing = worldAndWar.toString();
             System.out.println(publishing);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             System.err.println("Date of publication can be only integer! ");
 
         } finally {
