@@ -1,6 +1,8 @@
 package library.exceptions;
 
 public class PublishingException extends Exception{
+
+
     public PublishingException() {
     }
 
