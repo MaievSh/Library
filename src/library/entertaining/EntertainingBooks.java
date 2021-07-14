@@ -2,14 +2,16 @@ package library.entertaining;
 
 import library.Books;
 
-public abstract class EntertainingBooks {
+public abstract class EntertainingBooks implements Books {
 
     private String author;
     private String book;
     private String description;
     private int publishing;
 
-public EntertainingBooks () {}
+public EntertainingBooks () {
+
+}
 
 public EntertainingBooks (String author, String book, String description, int publishing) {
 
@@ -27,7 +29,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.author;
     }
 
-    public void setBook (String Book) {
+    public void setBook (String book) {
         this.book = book;
     }
 
@@ -35,7 +37,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.book;
     }
 
-    public void setDescription (String Description) {
+    public void setDescription (String description) {
         this.description = description;
     }
 
@@ -43,7 +45,7 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.description;
     }
 
-    public void setPublishing (int Publishing)  {
+    public void setPublishing (int publishing)  {
         this.publishing = publishing;
     }
 
@@ -51,10 +53,25 @@ public EntertainingBooks (String author, String book, String description, int pu
         return this.publishing;
     }
 
-    public void printInformation () {
+    public void printInfo () {
         System.out.println (getAuthor());
         System.out.println (getBook());
         System.out.println (getDescription());
         System.out.println (getPublishing());
+    }
+
+    @Override
+    public void changeAuthor(String author) {
+        setAuthor(author);
+    }
+
+    @Override
+    public void removeBook() {
+
+    }
+
+    @Override
+    public  void  changePublishing (int publishing){
+    setPublishing(publishing);
     }
 }
